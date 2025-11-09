@@ -1,0 +1,46 @@
+# MusicGen LoRA微调配置
+
+# 模型配置
+model:
+  base_model_path: "/root/autodl-tmp/musicgen/local/musicgen-small"
+  lora_rank: 12
+  lora_alpha: 24
+  lora_dropout: 0.1
+  target_modules: ["q_proj", "k_proj", "v_proj", "out_proj", "fc1", "fc2"]
+
+# 数据配置
+data:
+  data_dir: "./finetune/data"
+  metadata_file: "metadata.json"
+  sample_rate: 32000
+  max_duration: 30.0
+  target_duration: 30.0
+  train_ratio: 0.8
+
+# 训练配置
+training:
+  learning_rate: 3.0e-4
+  batch_size: 2
+  gradient_accumulation_steps: 4
+  num_epochs: 5
+  warmup_steps: 100
+  save_steps: 100
+  logging_steps: 10
+  fp16: true
+  max_grad_norm: 1.0
+  weight_decay: 0.01
+
+# 输出配置
+output:
+  output_dir: "./finetune/output"
+  checkpoint_dir: "./finetune/output/checkpoints"
+  log_dir: "./finetune/output/logs"
+
+# 推理配置
+inference:
+  duration: 10
+  guidance_scale: 3.0
+  temperature: 1.0
+  top_k: 250
+  top_p: 0.0
+
