@@ -3,3 +3,5 @@ local/musicgen-small/
 *.mp3
 **/*.wav
 **/*.mp3
+
+.cursor
