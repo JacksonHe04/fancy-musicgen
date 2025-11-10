@@ -183,8 +183,23 @@ class MusicGenTrainer:
                         padding_mask=batch['padding_mask'],
                     ).audio_codes
                 batch_size = batch['input_values'].shape[0]
-                labels = audio_codes[0].reshape(batch_size * self.model.decoder.num_codebooks, -1).to(self.device)
+                # audio_codes: (frames=1, bsz, codebooks, code_len)
+                codes = audio_codes[0]  # (bsz, codebooks, code_len)
+                code_len = codes.shape[-1]
+                # 依据padding_mask估计有效token长度并将超出部分mask为-100
+                wave_total = batch['input_values'].shape[-1]
+                valid_wave = (~batch['padding_mask'].bool()).sum(dim=1)  # (bsz,)
+                valid_code_len = torch.clamp((valid_wave.float() / float(wave_total) * code_len).floor().long(), min=0, max=code_len)
+                labels_codes = codes.clone()
+                for i in range(batch_size):
+                    vlen = max(1, int(valid_code_len[i].item()))
+                    if vlen < code_len:
+                        labels_codes[i, :, vlen:] = -100
+                labels = labels_codes.reshape(batch_size * self.model.decoder.num_codebooks, code_len).to(self.device)
                 batch['labels'] = labels
+                # 若整批全部为忽略，则跳过该步
+                if (labels != -100).sum() == 0:
+                    continue
                 
                 # MusicGen模型训练需要特殊处理
                 # 提取input_ids（文本条件）和audio_values（音频）
@@ -310,8 +325,20 @@ class MusicGenTrainer:
                     padding_mask=batch['padding_mask'],
                 ).audio_codes
                 batch_size = batch['input_values'].shape[0]
-                labels = audio_codes[0].reshape(batch_size * self.model.decoder.num_codebooks, -1).to(self.device)
+                codes = audio_codes[0]
+                code_len = codes.shape[-1]
+                wave_total = batch['input_values'].shape[-1]
+                valid_wave = (~batch['padding_mask'].bool()).sum(dim=1)
+                valid_code_len = torch.clamp((valid_wave.float() / float(wave_total) * code_len).floor().long(), min=0, max=code_len)
+                labels_codes = codes.clone()
+                for i in range(batch_size):
+                    vlen = max(1, int(valid_code_len[i].item()))
+                    if vlen < code_len:
+                        labels_codes[i, :, vlen:] = -100
+                labels = labels_codes.reshape(batch_size * self.model.decoder.num_codebooks, code_len).to(self.device)
                 batch['labels'] = labels
+                if (labels != -100).sum() == 0:
+                    continue
 
                 if self.fp16:
                     with torch.cuda.amp.autocast():

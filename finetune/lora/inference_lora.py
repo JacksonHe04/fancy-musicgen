@@ -87,9 +87,16 @@ def save_audio(audio_values: torch.Tensor, sampling_rate: int, output_dir: str, 
         if audio_np.ndim > 1:
             audio_np = audio_np[0]
         
-        # 创建文件名
-        prompt_text = prompts[idx].replace(' ', '_').replace('/', '_')[:30]
-        filename = f"{timestamp}_{idx}_{prompt_text}.wav"
+        # 创建文件名（清理特殊字符）
+        prompt_text = prompts[idx]
+        # 替换可能影响文件名的字符
+        safe_text = prompt_text.replace(' ', '_').replace('/', '_').replace('\\', '_')
+        safe_text = safe_text.replace(',', '_').replace('.', '_').replace(':', '_')
+        safe_text = safe_text.replace(';', '_').replace('!', '_').replace('?', '_')
+        safe_text = safe_text.replace('(', '_').replace(')', '_').replace('[', '_').replace(']', '_')
+        safe_text = safe_text.replace('{', '_').replace('}', '_').replace('|', '_')
+        safe_text = safe_text[:50]  # 限制长度
+        filename = f"{timestamp}_{idx}_{safe_text}.wav"
         filepath = output_path / filename
         
         # 保存音频

@@ -137,14 +137,20 @@ def prepare_dataset(
 
     samples = collect_samples(raw_metadata, audio_dir)
     random.seed(seed)
-    random.shuffle(samples)
-
-    split_idx = int(len(samples) * train_ratio)
-    # Ensure at least one sample in each split
-    split_idx = max(1, min(split_idx, len(samples) - 1))
-
-    train_samples = samples[:split_idx]
-    valid_samples = samples[split_idx:]
+    # Group by base_name (original beat id) so that both segments from the same beat stay together
+    groups = {}
+    for s in samples:
+        groups.setdefault(s.base_name, []).append(s)
+    unique_bases = list(groups.keys())
+    random.shuffle(unique_bases)
+    # Split at beat level (e.g., 50 beats -> 40/10 for 0.8)
+    split_idx = int(len(unique_bases) * train_ratio)
+    split_idx = max(1, min(split_idx, len(unique_bases) - 1))
+    train_bases = set(unique_bases[:split_idx])
+    valid_bases = set(unique_bases[split_idx:])
+    # Flatten grouped samples maintaining subset integrity
+    train_samples = [s for base in train_bases for s in groups[base]]
+    valid_samples = [s for base in valid_bases for s in groups[base]]
 
     print(f"Total samples: {len(samples)} (train: {len(train_samples)}, valid: {len(valid_samples)})")
 
