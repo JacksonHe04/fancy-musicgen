@@ -35,7 +35,6 @@ def generate_music_from_text(prompts, duration=8, output_dir='./output', model_p
     # 加载本地预训练模型
     print(f"加载本地模型: {model_path}")
     model = MusicGen.get_pretrained(model_path)
-    # MusicGen对象不支持to()方法，移除这行
     
     # 设置生成参数
     model.set_generation_params(
