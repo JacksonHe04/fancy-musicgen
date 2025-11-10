@@ -1,7 +1,8 @@
 local/musicgen-small/
-*.wav
-*.mp3
-**/*.wav
-**/*.mp3
+# *.wav
+# *.mp3
+# **/*.wav
+# **/*.mp3
 
+finetune/data/raw-data/*
 .cursor
