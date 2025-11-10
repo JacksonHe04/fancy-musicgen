@@ -49,6 +49,7 @@ const RightContent = ({
         setLoadedModels(prev => ({ ...prev, ...newLoadedModels }))
       } else {
         setLoadingLogs(prev => [...prev, `模型加载失败: ${data.error}`])
+        alert(`模型加载失败: ${data.error}`)
       }
     } catch (error) {
       console.error('Failed to load models:', error)
@@ -97,10 +98,16 @@ const RightContent = ({
       const data = await response.json()
       
       if (data.success) {
-        setLoadingLogs(prev => [...prev, '音乐生成成功！'])
-        setGeneratedAudio(data.audioFiles)
+        setLoadingLogs(prev => [...prev, `音乐生成成功！共生成 ${data.audioFiles?.length || 0} 个音频文件`])
+        setGeneratedAudio(prev => {
+          // 合并新生成的音频，避免重复
+          const existingUrls = new Set(prev.map(a => a.url))
+          const newAudios = data.audioFiles.filter(a => !existingUrls.has(a.url))
+          return [...prev, ...newAudios]
+        })
       } else {
         setLoadingLogs(prev => [...prev, `音乐生成失败: ${data.error}`])
+        alert(`生成失败: ${data.error}`)
       }
     } catch (error) {
       console.error('Failed to generate music:', error)
@@ -155,16 +162,9 @@ const RightContent = ({
       <div className="form-group">
         <label className="form-label">生成的音频</label>
         {generatedAudio.length === 0 ? (
-          <div style={{ 
-            textAlign: 'center', 
-            padding: '3rem', 
-            color: '#666',
-            backgroundColor: '#f8f9fa',
-            borderRadius: '8px',
-            border: '2px dashed #dee2e6'
-          }}>
+          <div className="empty-state">
             <p>暂无生成的音频</p>
-            <p style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>
+            <p>
               请填写左侧表单并点击"生成音乐"按钮
             </p>
           </div>
@@ -184,10 +184,21 @@ const AudioCard = ({ audio }) => {
   const [isPlaying, setIsPlaying] = useState(false)
 
   const togglePlay = () => {
-    setIsPlaying(!isPlaying)
+    const audioElement = document.querySelector(`audio[src="${audio.url}"]`)
+    if (audioElement) {
+      if (isPlaying) {
+        audioElement.pause()
+      } else {
+        audioElement.play()
+      }
+    }
   }
 
   const downloadAudio = () => {
+    if (audio.error) {
+      alert(`无法下载: ${audio.error}`)
+      return
+    }
     const link = document.createElement('a')
     link.href = audio.url
     link.download = audio.filename
@@ -196,12 +207,30 @@ const AudioCard = ({ audio }) => {
     document.body.removeChild(link)
   }
 
+  if (audio.error) {
+    return (
+      <div className="audio-card" style={{ borderColor: '#ef4444' }}>
+        <h3>{audio.modelName}</h3>
+        <div style={{ marginBottom: '1rem' }}>
+          <small style={{ color: '#ef4444', fontWeight: 600 }}>
+            生成失败: {audio.error}
+          </small>
+        </div>
+        <div style={{ marginBottom: '1rem' }}>
+          <small style={{ color: '#666' }}>
+            风格: {audio.style} | 标签: {audio.tags?.join(', ') || '无'}
+          </small>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="audio-card">
       <h3>{audio.modelName}</h3>
       <div style={{ marginBottom: '1rem' }}>
-        <small style={{ color: '#666' }}>
-          风格: {audio.style} | 标签: {audio.tags.join(', ')}
+        <small style={{ color: '#718096', fontSize: '0.875rem' }}>
+          风格: {audio.style} | 标签: {audio.tags?.join(', ') || '无'}
         </small>
       </div>
       <audio
@@ -211,8 +240,9 @@ const AudioCard = ({ audio }) => {
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
         onEnded={() => setIsPlaying(false)}
+        style={{ marginBottom: '1rem' }}
       />
-      <div style={{ display: 'flex', gap: '0.5rem' }}>
+      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
         <button
           className="btn btn-secondary"
           onClick={togglePlay}

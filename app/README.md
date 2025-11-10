@@ -33,6 +33,8 @@ app/
 
 - Node.js (v16 or higher)
 - npm or yarn
+- Python 3.8+ with conda environment named "music"
+- Required Python packages: transformers, peft, torch, scipy, numpy
 
 ### Installation
 
@@ -41,9 +43,23 @@ app/
 npm install
 ```
 
-2. Start the development server (frontend + backend):
+2. Ensure conda environment is set up with required packages:
 ```bash
-npm run dev:full
+conda activate music
+pip install transformers peft torch scipy numpy
+```
+
+3. Start the development server (frontend + backend):
+```bash
+# Using conda environment (recommended)
+npm run dev:full:conda
+
+# Or manually:
+# Terminal 1: Start backend
+npm run server:conda
+
+# Terminal 2: Start frontend
+npm run dev
 ```
 
 This will start:
@@ -53,7 +69,7 @@ This will start:
 ### Development
 
 - Frontend only: `npm run dev`
-- Backend only: `npm run server`
+- Backend only: `npm run server` (uses system python) or `npm run server:conda` (uses conda environment)
 - Build for production: `npm run build`
 
 ## Usage
@@ -76,16 +92,20 @@ This will start:
 
 ## Model Integration
 
-The application is designed to integrate with your existing MusicGen models:
+The application is now fully integrated with your MusicGen models:
 
 - **MusicGen-Small**: Located at `/root/autodl-tmp/musicgen/local/musicgen-small`
 - **Fine-tuned Models**: Located in respective output directories (best_model/final_model)
 
-To integrate with your actual model loading and generation logic, modify the `server.js` file:
+The backend uses a Python service (`model_service.py`) to:
+1. Load base models and LoRA fine-tuned models
+2. Generate music using the loaded models
+3. Save generated audio files to `public/generated/`
 
-1. Replace the mock model loading in `/api/load-models` with your actual model loading code
-2. Replace the mock music generation in `/api/generate` with your actual generation logic
-3. Update the file paths and model configurations as needed
+The Python service handles:
+- Model loading and caching in memory
+- Music generation with configurable parameters
+- Audio file saving in WAV format
 
 ## Configuration
 

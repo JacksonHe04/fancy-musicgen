@@ -4,6 +4,8 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
+import { spawn } from 'child_process'
+import { promisify } from 'util'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -18,6 +20,68 @@ app.use(express.static('public'))
 
 // Store loaded models in memory
 const loadedModels = new Map()
+
+// Python executable path (use conda environment)
+// Try to use conda python first, fallback to system python
+const PYTHON_PATH = process.env.PYTHON_PATH || (() => {
+  // Try common conda python paths
+  const possiblePaths = [
+    '/root/miniconda3/envs/music/bin/python',
+    '/opt/conda/envs/music/bin/python',
+    'python3',
+    'python'
+  ]
+  // For now, use python and let the system find it
+  // User can set PYTHON_PATH environment variable if needed
+  return 'python'
+})()
+const MODEL_SERVICE_PATH = path.join(__dirname, 'model_service.py')
+
+// Helper function to run Python script
+function runPythonScript(command, args) {
+  return new Promise((resolve, reject) => {
+    const pythonArgs = [MODEL_SERVICE_PATH, command, ...args]
+    console.log(`Running: ${PYTHON_PATH} ${pythonArgs.join(' ')}`)
+    
+    const pythonProcess = spawn(PYTHON_PATH, pythonArgs, {
+      cwd: __dirname,
+      env: { ...process.env, PYTHONUNBUFFERED: '1' }
+    })
+    
+    let stdout = ''
+    let stderr = ''
+    
+    pythonProcess.stdout.on('data', (data) => {
+      stdout += data.toString()
+      console.log(`Python stdout: ${data.toString()}`)
+    })
+    
+    pythonProcess.stderr.on('data', (data) => {
+      stderr += data.toString()
+      console.error(`Python stderr: ${data.toString()}`)
+    })
+    
+    pythonProcess.on('close', (code) => {
+      if (code === 0) {
+        try {
+          // 只取最后一行为 JSON
+          const lines = stdout.trim().split(/\r?\n/)
+          const lastLine = lines[lines.length - 1]
+          const result = JSON.parse(lastLine)
+          resolve(result)
+        } catch (e) {
+          resolve(stdout.trim())
+        }
+      } else {
+        reject(new Error(`Python script failed with code ${code}: ${stderr || stdout}`))
+      }
+    })
+    
+    pythonProcess.on('error', (error) => {
+      reject(new Error(`Failed to start Python process: ${error.message}`))
+    })
+  })
+}
 
 // API Routes
 
@@ -45,12 +109,15 @@ app.post('/api/load-models', async (req, res) => {
   const { models, scheme } = req.body
   
   try {
-    for (const modelId of models) {
-      if (loadedModels.has(modelId)) {
-        console.log(`Model ${modelId} already loaded`)
-        continue
-      }
+    // Filter out already loaded models
+    const modelsToLoad = models.filter(modelId => !loadedModels.has(modelId))
+    
+    if (modelsToLoad.length === 0) {
+      return res.json({ success: true, message: 'All models are already loaded' })
+    }
 
+    // Check if model paths exist
+    for (const modelId of modelsToLoad) {
       let modelPath = ''
       if (modelId === 'musicgen-small') {
         modelPath = '/root/autodl-tmp/musicgen/local/musicgen-small'
@@ -60,27 +127,45 @@ app.post('/api/load-models', async (req, res) => {
         modelPath = `/root/autodl-tmp/musicgen/finetune/${scheme}/final_model`
       }
 
-      // Check if model path exists
-      if (!fs.existsSync(modelPath)) {
+      if (modelPath && !fs.existsSync(modelPath)) {
         throw new Error(`Model path does not exist: ${modelPath}`)
       }
-
-      // Simulate model loading (in real implementation, this would load the actual model)
-      console.log(`Loading model: ${modelId} from ${modelPath}`)
-      
-      // Here you would integrate with your actual model loading logic
-      // For now, we'll simulate it with a delay
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      loadedModels.set(modelId, {
-        path: modelPath,
-        loadedAt: new Date().toISOString()
-      })
-      
-      console.log(`Model ${modelId} loaded successfully`)
     }
 
-    res.json({ success: true, message: 'Models loaded successfully' })
+    // Call Python service to load models
+    console.log(`Loading models: ${modelsToLoad.join(', ')}`)
+    const modelIdsJson = JSON.stringify(modelsToLoad)
+    const results = await runPythonScript('load', [modelIdsJson, scheme || ''])
+    
+    // Check results and update loaded models
+    let allSuccess = true
+    const errors = []
+    
+    for (const modelId of modelsToLoad) {
+      if (results[modelId] && results[modelId].success) {
+        loadedModels.set(modelId, {
+          path: modelId === 'musicgen-small' 
+            ? '/root/autodl-tmp/musicgen/local/musicgen-small'
+            : `/root/autodl-tmp/musicgen/finetune/${scheme}/${modelId.includes('-best') ? 'best' : 'final'}_model`,
+          loadedAt: new Date().toISOString()
+        })
+        console.log(`Model ${modelId} loaded successfully`)
+      } else {
+        allSuccess = false
+        const errorMsg = results[modelId]?.message || 'Unknown error'
+        errors.push(`${modelId}: ${errorMsg}`)
+        console.error(`Failed to load model ${modelId}: ${errorMsg}`)
+      }
+    }
+
+    if (allSuccess) {
+      res.json({ success: true, message: 'Models loaded successfully' })
+    } else {
+      res.status(500).json({ 
+        success: false, 
+        error: `Some models failed to load: ${errors.join('; ')}` 
+      })
+    }
   } catch (error) {
     console.error('Failed to load models:', error)
     res.status(500).json({ 
@@ -96,54 +181,77 @@ app.post('/api/generate', async (req, res) => {
   
   try {
     // Check if required models are loaded
-    for (const modelId of models) {
-      if (!loadedModels.has(modelId)) {
-        throw new Error(`Model ${modelId} is not loaded. Please load models first.`)
-      }
+    const unloadedModels = models.filter(modelId => !loadedModels.has(modelId))
+    if (unloadedModels.length > 0) {
+      throw new Error(`Models not loaded: ${unloadedModels.join(', ')}. Please load models first.`)
+    }
+
+    if (!style || !style.trim()) {
+      throw new Error('Style is required')
     }
 
     const generatedFiles = []
+    const outputDir = path.join(__dirname, 'public', 'generated')
+    
+    // Ensure the generated directory exists
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true })
+    }
     
     // Generate music for each model
     for (const modelId of models) {
       console.log(`Generating music with model: ${modelId}`)
       
-      // Simulate music generation (in real implementation, this would call your model)
-      await new Promise(resolve => setTimeout(resolve, 3000))
-      
-      // Create a mock audio file for demonstration
-      const timestamp = new Date().toISOString().replace(/[:.]/g, '-')
-      const filename = `${timestamp}_${modelId}_${style.replace(/\s+/g, '_')}.wav`
-      const outputPath = path.join(__dirname, 'public', 'generated', filename)
-      
-      // Ensure the generated directory exists
-      const generatedDir = path.dirname(outputPath)
-      if (!fs.existsSync(generatedDir)) {
-        fs.mkdirSync(generatedDir, { recursive: true })
+      try {
+        // Call Python service to generate music
+        const tagsJson = JSON.stringify(tags || [])
+        const result = await runPythonScript('generate', [
+          modelId,
+          scheme || '',
+          style.trim(),
+          tagsJson,
+          '10' // duration in seconds
+        ])
+        
+        if (result.filename && result.filepath) {
+          // Verify file exists
+          if (fs.existsSync(result.filepath)) {
+            generatedFiles.push({
+              modelName: modelId,
+              filename: result.filename,
+              url: result.url || `/generated/${result.filename}`,
+              style: style,
+              tags: tags || [],
+              scheme: scheme
+            })
+            console.log(`Music generated with model ${modelId}: ${result.filename}`)
+          } else {
+            throw new Error(`Generated file not found: ${result.filepath}`)
+          }
+        } else {
+          throw new Error('Invalid response from model service')
+        }
+      } catch (error) {
+        console.error(`Failed to generate music with model ${modelId}:`, error)
+        // Continue with other models even if one fails
+        generatedFiles.push({
+          modelName: modelId,
+          error: error.message,
+          style: style,
+          tags: tags || [],
+          scheme: scheme
+        })
       }
-      
-      // For demo purposes, copy an existing audio file
-      const demoAudioPath = '/root/autodl-tmp/musicgen/output_music/20251110_020501_0_Cheerful_piano_music.wav'
-      if (fs.existsSync(demoAudioPath)) {
-        fs.copyFileSync(demoAudioPath, outputPath)
-      }
-      
-      generatedFiles.push({
-        modelName: modelId,
-        filename: filename,
-        url: `/generated/${filename}`,
-        style: style,
-        tags: tags,
-        scheme: scheme
-      })
-      
-      console.log(`Music generated with model ${modelId}: ${filename}`)
+    }
+
+    if (generatedFiles.length === 0) {
+      throw new Error('Failed to generate music with any model')
     }
 
     res.json({ 
       success: true, 
       audioFiles: generatedFiles,
-      message: 'Music generated successfully'
+      message: `Music generated successfully with ${generatedFiles.filter(f => f.filename).length} model(s)`
     })
   } catch (error) {
     console.error('Failed to generate music:', error)
