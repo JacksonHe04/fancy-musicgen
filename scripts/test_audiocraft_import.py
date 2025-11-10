@@ -8,7 +8,7 @@ print("PyTorch version:", torch.__version__)
 print("TorchAudio version:", torchaudio.__version__)
 
 # 添加项目路径到Python路径
-sys.path.append('/Users/jackson/Codes/musicgen/audiocraft')
+sys.path.append('/root/autodl-tmp/musicgen/audiocraft')
 
 try:
     # 尝试导入audiocraft的核心模块

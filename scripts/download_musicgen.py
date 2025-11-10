@@ -4,10 +4,10 @@ import torch
 from huggingface_hub import snapshot_download
 
 # 添加项目路径到Python路径
-sys.path.append('/Users/jackson/Codes/musicgen/audiocraft')
+sys.path.append('/root/autodl-tmp/musicgen/audiocraft')
 
 # 设置下载目录
-DOWNLOAD_DIR = '/Users/jackson/Codes/musicgen/local/musicgen-small'
+DOWNLOAD_DIR = '/root/autodl-tmp/musicgen/local/musicgen-small'
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
 print(f"开始下载musicgen-small模型到: {DOWNLOAD_DIR}")
