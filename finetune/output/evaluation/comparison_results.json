@@ -1,0 +1,15 @@
+{
+  "test_prompts": [
+    "hip hop 808 beat with trap drums",
+    "memphis style 808 beat, dark and confident"
+  ],
+  "base_model_files": [
+    "../output/evaluation/base_model/20251110_191906_0_hip_hop_808_beat_with_trap_dru.wav",
+    "../output/evaluation/base_model/20251110_191906_1_memphis_style_808_beat,_dark_a.wav"
+  ],
+  "lora_model_files": [
+    "../output/evaluation/lora_model/20251110_191923_0_hip_hop_808_beat_with_trap_dru.wav",
+    "../output/evaluation/lora_model/20251110_191923_1_memphis_style_808_beat,_dark_a.wav"
+  ],
+  "duration": 15
+}

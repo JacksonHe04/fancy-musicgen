@@ -78,6 +78,13 @@ class MusicGenTrainer:
         logger.info(f"Loading model from {model_path}")
         self.processor = AutoProcessor.from_pretrained(model_path)
         self.model = MusicgenForConditionalGeneration.from_pretrained(model_path)
+        # Ensure generation config values are propagated to model config for training
+        if self.model.config.decoder_start_token_id is None:
+            self.model.config.decoder_start_token_id = self.model.generation_config.pad_token_id
+        if self.model.config.pad_token_id is None:
+            self.model.config.pad_token_id = self.model.generation_config.pad_token_id
+        if getattr(self.model.config, "vocab_size", None) is None:
+            self.model.config.vocab_size = self.model.decoder.config.vocab_size
         
         # 设置LoRA
         logger.info("Setting up LoRA adapter")
@@ -151,8 +158,33 @@ class MusicGenTrainer:
             optimizer.zero_grad()
             
             for step, batch in enumerate(progress_bar):
+                # Pad text tensors if collate_fn kept them as lists
+                if isinstance(batch.get('input_ids'), list):
+                    input_ids_list = [t.squeeze(0) if t.dim() > 1 else t for t in batch['input_ids']]
+                    attention_mask_list = [t.squeeze(0) if t.dim() > 1 else t for t in batch['attention_mask']]
+                    batch['input_ids'] = torch.nn.utils.rnn.pad_sequence(
+                        input_ids_list,
+                        batch_first=True,
+                        padding_value=self.processor.tokenizer.pad_token_id,
+                    )
+                    batch['attention_mask'] = torch.nn.utils.rnn.pad_sequence(
+                        attention_mask_list,
+                        batch_first=True,
+                        padding_value=0,
+                    )
+
                 # 移动到设备
                 batch = {k: v.to(self.device) if isinstance(v, torch.Tensor) else v for k, v in batch.items()}
+
+                # 准备labels（音频量化tokens）
+                with torch.no_grad():
+                    audio_codes = self.model.audio_encoder(
+                        input_values=batch['input_values'],
+                        padding_mask=batch['padding_mask'],
+                    ).audio_codes
+                batch_size = batch['input_values'].shape[0]
+                labels = audio_codes[0].reshape(batch_size * self.model.decoder.num_codebooks, -1).to(self.device)
+                batch['labels'] = labels
                 
                 # MusicGen模型训练需要特殊处理
                 # 提取input_ids（文本条件）和audio_values（音频）
@@ -257,8 +289,30 @@ class MusicGenTrainer:
         
         with torch.no_grad():
             for batch in tqdm(self.valid_loader, desc="Validating"):
+                if isinstance(batch.get('input_ids'), list):
+                    input_ids_list = [t.squeeze(0) if t.dim() > 1 else t for t in batch['input_ids']]
+                    attention_mask_list = [t.squeeze(0) if t.dim() > 1 else t for t in batch['attention_mask']]
+                    batch['input_ids'] = torch.nn.utils.rnn.pad_sequence(
+                        input_ids_list,
+                        batch_first=True,
+                        padding_value=self.processor.tokenizer.pad_token_id,
+                    )
+                    batch['attention_mask'] = torch.nn.utils.rnn.pad_sequence(
+                        attention_mask_list,
+                        batch_first=True,
+                        padding_value=0,
+                    )
+
                 batch = {k: v.to(self.device) if isinstance(v, torch.Tensor) else v for k, v in batch.items()}
-                
+
+                audio_codes = self.model.audio_encoder(
+                    input_values=batch['input_values'],
+                    padding_mask=batch['padding_mask'],
+                ).audio_codes
+                batch_size = batch['input_values'].shape[0]
+                labels = audio_codes[0].reshape(batch_size * self.model.decoder.num_codebooks, -1).to(self.device)
+                batch['labels'] = labels
+
                 if self.fp16:
                     with torch.cuda.amp.autocast():
                         outputs = self.model(**batch)
@@ -266,7 +320,7 @@ class MusicGenTrainer:
                 else:
                     outputs = self.model(**batch)
                     loss = outputs.loss
-                
+
                 total_loss += loss.item()
         
         avg_loss = total_loss / len(self.valid_loader)
