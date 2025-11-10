@@ -153,11 +153,35 @@ finetune/data/
 
 ### 自动预处理
 
-使用 `prepare_data.py` 脚本会自动：
-- 重采样到32kHz
-- 统一音频格式
-- 创建train/valid分割
-- 生成metadata.json
+使用 `scripts/prepare_finetune_dataset.py` 可以直接从 `raw-data/beat-segment` 与 `raw-metadata.json` 生成符合训练要求的 `train/`、`valid/` 目录及 `metadata.json`。
+
+```bash
+cd /root/autodl-tmp/musicgen/finetune/scripts
+python prepare_finetune_dataset.py \
+    --raw-metadata ../data/raw-data/raw-metadata.json \
+    --audio-dir ../data/raw-data/beat-segment \
+    --output-dir ../data \
+    --train-ratio 0.8
+```
+
+生成的数据自动完成：
+- 重采样到32kHz单声道
+- 切分train/valid（默认80/20，可调）
+- 生成"{style} hiphop beat, {tag}"格式的文本描述
+- 输出 `metadata.json`
+
+若需要对其他数据源做快速处理，也可以继续使用 `prepare_data.py` 脚本：
+
+```python
+import librosa
+import soundfile as sf
+
+# 加载音频
+audio, sr = librosa.load('input.wav', sr=32000)
+
+# 保存处理后的音频
+sf.write('output.wav', audio, 32000)
+```
 
 ### 手动预处理
 
