@@ -1,402 +1,402 @@
 [
   {
-    "audio": "train/beat_beat22_01_0000.wav",
-    "text": "detroit hiphop beat, suspenseful dark dynamic"
-  },
-  {
-    "audio": "train/beat_beat21_02_0001.wav",
-    "text": "jazz hiphop beat, lofi chill relax"
-  },
-  {
-    "audio": "train/beat_beat46_02_0002.wav",
-    "text": "memphis hiphop beat, proud confident calm"
-  },
-  {
-    "audio": "train/beat_beat5_02_0003.wav",
-    "text": "jazz hiphop beat, virtual relax chill"
-  },
-  {
-    "audio": "train/beat_beat33_02_0004.wav",
-    "text": "memphis hiphop beat, oppressive dark restless"
-  },
-  {
-    "audio": "train/beat_beat26_01_0005.wav",
-    "text": "boombap oldschool hiphop beat, retro casual"
-  },
-  {
-    "audio": "train/beat_beat1_02_0006.wav",
-    "text": "trap hiphop beat, cold gloomy confident"
-  },
-  {
-    "audio": "train/beat_beat36_01_0007.wav",
-    "text": "boombap hiphop beat, gloomy dark tense"
-  },
-  {
-    "audio": "train/beat_beat8_02_0008.wav",
-    "text": "boombap oldschool hiphop beat, nostalgic retro sorrow"
-  },
-  {
-    "audio": "train/beat_beat40_01_0009.wav",
+    "audio": "train/beat_beat40_01_0000.wav",
     "text": "rage hiphop beat, electronic dynamic confident"
   },
   {
-    "audio": "train/beat_beat37_02_0010.wav",
-    "text": "trap hiphop beat, emo nostalgic warm"
-  },
-  {
-    "audio": "train/beat_beat6_01_0011.wav",
-    "text": "boombap hiphop beat, gangsta heavy dark"
-  },
-  {
-    "audio": "train/beat_beat28_02_0012.wav",
-    "text": "jazz hiphop beat, lofi chill relax"
-  },
-  {
-    "audio": "train/beat_beat29_01_0013.wav",
-    "text": "trap hiphop beat, gloomy electronic virtual"
-  },
-  {
-    "audio": "train/beat_beat37_01_0014.wav",
-    "text": "trap hiphop beat, emo nostalgic warm"
-  },
-  {
-    "audio": "train/beat_beat23_02_0015.wav",
-    "text": "afro trap drill hiphop beat, dynamic energetic lively"
-  },
-  {
-    "audio": "train/beat_beat25_01_0016.wav",
-    "text": "boombap oldschool hiphop beat, simple retro"
-  },
-  {
-    "audio": "train/beat_beat47_01_0017.wav",
-    "text": "detroit hiphop beat, dark cold gloomy"
-  },
-  {
-    "audio": "train/beat_beat39_01_0018.wav",
-    "text": "regalia hiphop beat, uplifting gloomy mysterious"
-  },
-  {
-    "audio": "train/beat_beat19_02_0019.wav",
-    "text": "afro drill hiphop beat, dynamic energetic lively"
-  },
-  {
-    "audio": "train/beat_beat16_01_0020.wav",
-    "text": "memphis hiphop beat, dark oppressive confident"
-  },
-  {
-    "audio": "train/beat_beat11_02_0021.wav",
-    "text": "trap hiphop beat, calm stiff serious"
-  },
-  {
-    "audio": "train/beat_beat17_01_0022.wav",
-    "text": "boombap hiphop beat, chinese uplifting glorious"
-  },
-  {
-    "audio": "train/beat_beat49_01_0023.wav",
-    "text": "trap hiphop beat, drifting noisy furious"
-  },
-  {
-    "audio": "train/beat_beat41_01_0024.wav",
-    "text": "memphis hiphop beat, proud cold"
-  },
-  {
-    "audio": "train/beat_beat25_02_0025.wav",
-    "text": "boombap oldschool hiphop beat, simple retro"
-  },
-  {
-    "audio": "train/beat_beat42_02_0026.wav",
-    "text": "rage hiphop beat, electronic dynamic lively"
-  },
-  {
-    "audio": "train/beat_beat14_01_0027.wav",
-    "text": "jazz hiphop beat, lofi lazy relax"
-  },
-  {
-    "audio": "train/beat_beat44_02_0028.wav",
-    "text": "memphis hiphop beat, ruthless proud cold"
-  },
-  {
-    "audio": "train/beat_beat17_02_0029.wav",
-    "text": "boombap hiphop beat, chinese uplifting glorious"
-  },
-  {
-    "audio": "train/beat_beat5_01_0030.wav",
-    "text": "jazz hiphop beat, virtual relax chill"
-  },
-  {
-    "audio": "train/beat_beat24_02_0031.wav",
-    "text": "regalia hiphop beat, noisy electronic dark"
-  },
-  {
-    "audio": "train/beat_beat30_02_0032.wav",
-    "text": "drill hiphop beat, cold ruthless oppressive"
-  },
-  {
-    "audio": "train/beat_beat32_02_0033.wav",
-    "text": "drill hiphop beat, calm nostalgic melodic"
-  },
-  {
-    "audio": "train/beat_beat38_01_0034.wav",
-    "text": "memphis hiphop beat, oppressive deep restless"
-  },
-  {
-    "audio": "train/beat_beat23_01_0035.wav",
-    "text": "afro trap drill hiphop beat, dynamic energetic lively"
-  },
-  {
-    "audio": "train/beat_beat50_01_0036.wav",
-    "text": "trap hiphop beat, cold dark gloomy"
-  },
-  {
-    "audio": "train/beat_beat27_01_0037.wav",
-    "text": "rage hiphop beat, metal electronic noisy"
-  },
-  {
-    "audio": "train/beat_beat43_02_0038.wav",
-    "text": "rage hiphop beat, noisy electronic dynamic"
-  },
-  {
-    "audio": "train/beat_beat7_01_0039.wav",
-    "text": "boombap hiphop beat, confused dark piano"
-  },
-  {
-    "audio": "train/beat_beat19_01_0040.wav",
-    "text": "afro drill hiphop beat, dynamic energetic lively"
-  },
-  {
-    "audio": "train/beat_beat12_02_0041.wav",
-    "text": "trap hiphop beat, dark cold restrained"
-  },
-  {
-    "audio": "train/beat_beat20_02_0042.wav",
-    "text": "detroit hiphop beat, suspenseful dark cold"
-  },
-  {
-    "audio": "train/beat_beat21_01_0043.wav",
-    "text": "jazz hiphop beat, lofi chill relax"
-  },
-  {
-    "audio": "train/beat_beat10_01_0044.wav",
-    "text": "jazz boombap hiphop beat, lively agile playful"
-  },
-  {
-    "audio": "train/beat_beat34_01_0045.wav",
-    "text": "trap hiphop beat, southside dark cold"
-  },
-  {
-    "audio": "train/beat_beat31_02_0046.wav",
-    "text": "drill hiphop beat, melodic calm free"
-  },
-  {
-    "audio": "train/beat_beat31_01_0047.wav",
-    "text": "drill hiphop beat, melodic calm free"
-  },
-  {
-    "audio": "train/beat_beat4_02_0048.wav",
-    "text": "boombap hiphop beat, emo guitar sad"
-  },
-  {
-    "audio": "train/beat_beat18_01_0049.wav",
-    "text": "trap hiphop beat, chinese freedom mysterious"
-  },
-  {
-    "audio": "train/beat_beat50_02_0050.wav",
-    "text": "trap hiphop beat, cold dark gloomy"
-  },
-  {
-    "audio": "train/beat_beat24_01_0051.wav",
-    "text": "regalia hiphop beat, noisy electronic dark"
-  },
-  {
-    "audio": "train/beat_beat2_01_0052.wav",
-    "text": "afro trap drill hiphop beat, energetic dynamic furious"
-  },
-  {
-    "audio": "train/beat_beat26_02_0053.wav",
-    "text": "boombap oldschool hiphop beat, retro casual"
-  },
-  {
-    "audio": "train/beat_beat9_01_0054.wav",
-    "text": "trap hiphop beat, emo guitar relax"
-  },
-  {
-    "audio": "train/beat_beat20_01_0055.wav",
-    "text": "detroit hiphop beat, suspenseful dark cold"
-  },
-  {
-    "audio": "train/beat_beat30_01_0056.wav",
-    "text": "drill hiphop beat, cold ruthless oppressive"
-  },
-  {
-    "audio": "train/beat_beat35_01_0057.wav",
-    "text": "boombap hiphop beat, dark serious cold"
-  },
-  {
-    "audio": "train/beat_beat12_01_0058.wav",
-    "text": "trap hiphop beat, dark cold restrained"
-  },
-  {
-    "audio": "train/beat_beat32_01_0059.wav",
-    "text": "drill hiphop beat, calm nostalgic melodic"
-  },
-  {
-    "audio": "train/beat_beat13_01_0060.wav",
-    "text": "jazz hiphop beat, chill relax lazy"
-  },
-  {
-    "audio": "train/beat_beat3_02_0061.wav",
-    "text": "jazz boombap oldschool hiphop beat, relax peaceful chill"
-  },
-  {
-    "audio": "train/beat_beat4_01_0062.wav",
-    "text": "boombap hiphop beat, emo guitar sad"
-  },
-  {
-    "audio": "train/beat_beat34_02_0063.wav",
-    "text": "trap hiphop beat, southside dark cold"
-  },
-  {
-    "audio": "train/beat_beat42_01_0064.wav",
-    "text": "rage hiphop beat, electronic dynamic lively"
-  },
-  {
-    "audio": "train/beat_beat10_02_0065.wav",
-    "text": "jazz boombap hiphop beat, lively agile playful"
-  },
-  {
-    "audio": "train/beat_beat40_02_0066.wav",
+    "audio": "train/beat_beat40_02_0001.wav",
     "text": "rage hiphop beat, electronic dynamic confident"
   },
   {
-    "audio": "train/beat_beat22_02_0067.wav",
-    "text": "detroit hiphop beat, suspenseful dark dynamic"
-  },
-  {
-    "audio": "train/beat_beat46_01_0068.wav",
+    "audio": "train/beat_beat46_01_0002.wav",
     "text": "memphis hiphop beat, proud confident calm"
   },
   {
-    "audio": "train/beat_beat11_01_0069.wav",
-    "text": "trap hiphop beat, calm stiff serious"
+    "audio": "train/beat_beat46_02_0003.wav",
+    "text": "memphis hiphop beat, proud confident calm"
   },
   {
-    "audio": "train/beat_beat1_01_0070.wav",
-    "text": "trap hiphop beat, cold gloomy confident"
+    "audio": "train/beat_beat20_01_0004.wav",
+    "text": "detroit hiphop beat, suspenseful dark cold"
   },
   {
-    "audio": "train/beat_beat48_02_0071.wav",
-    "text": "trap hiphop beat, retro nostalgic"
+    "audio": "train/beat_beat20_02_0005.wav",
+    "text": "detroit hiphop beat, suspenseful dark cold"
   },
   {
-    "audio": "train/beat_beat29_02_0072.wav",
-    "text": "trap hiphop beat, gloomy electronic virtual"
-  },
-  {
-    "audio": "train/beat_beat47_02_0073.wav",
-    "text": "detroit hiphop beat, dark cold gloomy"
-  },
-  {
-    "audio": "train/beat_beat27_02_0074.wav",
-    "text": "rage hiphop beat, metal electronic noisy"
-  },
-  {
-    "audio": "train/beat_beat45_02_0075.wav",
-    "text": "rage hiphop beat, noisy electronic dynamic"
-  },
-  {
-    "audio": "train/beat_beat13_02_0076.wav",
-    "text": "jazz hiphop beat, chill relax lazy"
-  },
-  {
-    "audio": "train/beat_beat36_02_0077.wav",
-    "text": "boombap hiphop beat, gloomy dark tense"
-  },
-  {
-    "audio": "train/beat_beat43_01_0078.wav",
-    "text": "rage hiphop beat, noisy electronic dynamic"
-  },
-  {
-    "audio": "train/beat_beat39_02_0079.wav",
-    "text": "regalia hiphop beat, uplifting gloomy mysterious"
-  },
-  {
-    "audio": "valid/beat_beat33_01_0000.wav",
-    "text": "memphis hiphop beat, oppressive dark restless"
-  },
-  {
-    "audio": "valid/beat_beat15_02_0001.wav",
-    "text": "boomap hiphop beat, absurd psychedelic cold"
-  },
-  {
-    "audio": "valid/beat_beat14_02_0002.wav",
-    "text": "jazz hiphop beat, lofi lazy relax"
-  },
-  {
-    "audio": "valid/beat_beat45_01_0003.wav",
-    "text": "rage hiphop beat, noisy electronic dynamic"
-  },
-  {
-    "audio": "valid/beat_beat49_02_0004.wav",
+    "audio": "train/beat_beat49_01_0006.wav",
     "text": "trap hiphop beat, drifting noisy furious"
   },
   {
-    "audio": "valid/beat_beat3_01_0005.wav",
-    "text": "jazz boombap oldschool hiphop beat, relax peaceful chill"
+    "audio": "train/beat_beat49_02_0007.wav",
+    "text": "trap hiphop beat, drifting noisy furious"
   },
   {
-    "audio": "valid/beat_beat28_01_0006.wav",
+    "audio": "train/beat_beat34_01_0008.wav",
+    "text": "trap hiphop beat, southside dark cold"
+  },
+  {
+    "audio": "train/beat_beat34_02_0009.wav",
+    "text": "trap hiphop beat, southside dark cold"
+  },
+  {
+    "audio": "train/beat_beat27_01_0010.wav",
+    "text": "rage hiphop beat, metal electronic noisy"
+  },
+  {
+    "audio": "train/beat_beat27_02_0011.wav",
+    "text": "rage hiphop beat, metal electronic noisy"
+  },
+  {
+    "audio": "train/beat_beat21_01_0012.wav",
     "text": "jazz hiphop beat, lofi chill relax"
   },
   {
-    "audio": "valid/beat_beat38_02_0007.wav",
-    "text": "memphis hiphop beat, oppressive deep restless"
+    "audio": "train/beat_beat21_02_0013.wav",
+    "text": "jazz hiphop beat, lofi chill relax"
   },
   {
-    "audio": "valid/beat_beat6_02_0008.wav",
-    "text": "boombap hiphop beat, gangsta heavy dark"
+    "audio": "train/beat_beat47_01_0014.wav",
+    "text": "detroit hiphop beat, dark cold gloomy"
   },
   {
-    "audio": "valid/beat_beat35_02_0009.wav",
-    "text": "boombap hiphop beat, dark serious cold"
+    "audio": "train/beat_beat47_02_0015.wav",
+    "text": "detroit hiphop beat, dark cold gloomy"
   },
   {
-    "audio": "valid/beat_beat44_01_0010.wav",
+    "audio": "train/beat_beat1_01_0016.wav",
+    "text": "trap hiphop beat, cold gloomy confident"
+  },
+  {
+    "audio": "train/beat_beat1_02_0017.wav",
+    "text": "trap hiphop beat, cold gloomy confident"
+  },
+  {
+    "audio": "train/beat_beat22_01_0018.wav",
+    "text": "detroit hiphop beat, suspenseful dark dynamic"
+  },
+  {
+    "audio": "train/beat_beat22_02_0019.wav",
+    "text": "detroit hiphop beat, suspenseful dark dynamic"
+  },
+  {
+    "audio": "train/beat_beat36_01_0020.wav",
+    "text": "boombap hiphop beat, gloomy dark tense"
+  },
+  {
+    "audio": "train/beat_beat36_02_0021.wav",
+    "text": "boombap hiphop beat, gloomy dark tense"
+  },
+  {
+    "audio": "train/beat_beat4_01_0022.wav",
+    "text": "boombap hiphop beat, emo guitar sad"
+  },
+  {
+    "audio": "train/beat_beat4_02_0023.wav",
+    "text": "boombap hiphop beat, emo guitar sad"
+  },
+  {
+    "audio": "train/beat_beat11_01_0024.wav",
+    "text": "trap hiphop beat, calm stiff serious"
+  },
+  {
+    "audio": "train/beat_beat11_02_0025.wav",
+    "text": "trap hiphop beat, calm stiff serious"
+  },
+  {
+    "audio": "train/beat_beat3_01_0026.wav",
+    "text": "jazz boombap oldschool hiphop beat, relax peaceful chill"
+  },
+  {
+    "audio": "train/beat_beat3_02_0027.wav",
+    "text": "jazz boombap oldschool hiphop beat, relax peaceful chill"
+  },
+  {
+    "audio": "train/beat_beat50_01_0028.wav",
+    "text": "trap hiphop beat, cold dark gloomy"
+  },
+  {
+    "audio": "train/beat_beat50_02_0029.wav",
+    "text": "trap hiphop beat, cold dark gloomy"
+  },
+  {
+    "audio": "train/beat_beat33_01_0030.wav",
+    "text": "memphis hiphop beat, oppressive dark restless"
+  },
+  {
+    "audio": "train/beat_beat33_02_0031.wav",
+    "text": "memphis hiphop beat, oppressive dark restless"
+  },
+  {
+    "audio": "train/beat_beat45_01_0032.wav",
+    "text": "rage hiphop beat, noisy electronic dynamic"
+  },
+  {
+    "audio": "train/beat_beat45_02_0033.wav",
+    "text": "rage hiphop beat, noisy electronic dynamic"
+  },
+  {
+    "audio": "train/beat_beat26_01_0034.wav",
+    "text": "boombap oldschool hiphop beat, retro casual"
+  },
+  {
+    "audio": "train/beat_beat26_02_0035.wav",
+    "text": "boombap oldschool hiphop beat, retro casual"
+  },
+  {
+    "audio": "train/beat_beat23_01_0036.wav",
+    "text": "afro trap drill hiphop beat, dynamic energetic lively"
+  },
+  {
+    "audio": "train/beat_beat23_02_0037.wav",
+    "text": "afro trap drill hiphop beat, dynamic energetic lively"
+  },
+  {
+    "audio": "train/beat_beat14_01_0038.wav",
+    "text": "jazz hiphop beat, lofi lazy relax"
+  },
+  {
+    "audio": "train/beat_beat14_02_0039.wav",
+    "text": "jazz hiphop beat, lofi lazy relax"
+  },
+  {
+    "audio": "train/beat_beat43_01_0040.wav",
+    "text": "rage hiphop beat, noisy electronic dynamic"
+  },
+  {
+    "audio": "train/beat_beat43_02_0041.wav",
+    "text": "rage hiphop beat, noisy electronic dynamic"
+  },
+  {
+    "audio": "train/beat_beat32_01_0042.wav",
+    "text": "drill hiphop beat, calm nostalgic melodic"
+  },
+  {
+    "audio": "train/beat_beat32_02_0043.wav",
+    "text": "drill hiphop beat, calm nostalgic melodic"
+  },
+  {
+    "audio": "train/beat_beat17_01_0044.wav",
+    "text": "boombap hiphop beat, chinese uplifting glorious"
+  },
+  {
+    "audio": "train/beat_beat17_02_0045.wav",
+    "text": "boombap hiphop beat, chinese uplifting glorious"
+  },
+  {
+    "audio": "train/beat_beat12_01_0046.wav",
+    "text": "trap hiphop beat, dark cold restrained"
+  },
+  {
+    "audio": "train/beat_beat12_02_0047.wav",
+    "text": "trap hiphop beat, dark cold restrained"
+  },
+  {
+    "audio": "train/beat_beat13_01_0048.wav",
+    "text": "jazz hiphop beat, chill relax lazy"
+  },
+  {
+    "audio": "train/beat_beat13_02_0049.wav",
+    "text": "jazz hiphop beat, chill relax lazy"
+  },
+  {
+    "audio": "train/beat_beat29_01_0050.wav",
+    "text": "trap hiphop beat, gloomy electronic virtual"
+  },
+  {
+    "audio": "train/beat_beat29_02_0051.wav",
+    "text": "trap hiphop beat, gloomy electronic virtual"
+  },
+  {
+    "audio": "train/beat_beat44_01_0052.wav",
     "text": "memphis hiphop beat, ruthless proud cold"
   },
   {
-    "audio": "valid/beat_beat7_02_0011.wav",
-    "text": "boombap hiphop beat, confused dark piano"
+    "audio": "train/beat_beat44_02_0053.wav",
+    "text": "memphis hiphop beat, ruthless proud cold"
   },
   {
-    "audio": "valid/beat_beat9_02_0012.wav",
-    "text": "trap hiphop beat, emo guitar relax"
+    "audio": "train/beat_beat42_01_0054.wav",
+    "text": "rage hiphop beat, electronic dynamic lively"
   },
   {
-    "audio": "valid/beat_beat15_01_0013.wav",
-    "text": "boomap hiphop beat, absurd psychedelic cold"
+    "audio": "train/beat_beat42_02_0055.wav",
+    "text": "rage hiphop beat, electronic dynamic lively"
   },
   {
-    "audio": "valid/beat_beat16_02_0014.wav",
-    "text": "memphis hiphop beat, dark oppressive confident"
-  },
-  {
-    "audio": "valid/beat_beat18_02_0015.wav",
-    "text": "trap hiphop beat, chinese freedom mysterious"
-  },
-  {
-    "audio": "valid/beat_beat48_01_0016.wav",
+    "audio": "train/beat_beat48_01_0056.wav",
     "text": "trap hiphop beat, retro nostalgic"
   },
   {
-    "audio": "valid/beat_beat2_02_0017.wav",
-    "text": "afro trap drill hiphop beat, energetic dynamic furious"
+    "audio": "train/beat_beat48_02_0057.wav",
+    "text": "trap hiphop beat, retro nostalgic"
   },
   {
-    "audio": "valid/beat_beat8_01_0018.wav",
+    "audio": "train/beat_beat19_01_0058.wav",
+    "text": "afro drill hiphop beat, dynamic energetic lively"
+  },
+  {
+    "audio": "train/beat_beat19_02_0059.wav",
+    "text": "afro drill hiphop beat, dynamic energetic lively"
+  },
+  {
+    "audio": "train/beat_beat10_01_0060.wav",
+    "text": "jazz boombap hiphop beat, lively agile playful"
+  },
+  {
+    "audio": "train/beat_beat10_02_0061.wav",
+    "text": "jazz boombap hiphop beat, lively agile playful"
+  },
+  {
+    "audio": "train/beat_beat31_01_0062.wav",
+    "text": "drill hiphop beat, melodic calm free"
+  },
+  {
+    "audio": "train/beat_beat31_02_0063.wav",
+    "text": "drill hiphop beat, melodic calm free"
+  },
+  {
+    "audio": "train/beat_beat38_01_0064.wav",
+    "text": "memphis hiphop beat, oppressive deep restless"
+  },
+  {
+    "audio": "train/beat_beat38_02_0065.wav",
+    "text": "memphis hiphop beat, oppressive deep restless"
+  },
+  {
+    "audio": "train/beat_beat39_01_0066.wav",
+    "text": "regalia hiphop beat, uplifting gloomy mysterious"
+  },
+  {
+    "audio": "train/beat_beat39_02_0067.wav",
+    "text": "regalia hiphop beat, uplifting gloomy mysterious"
+  },
+  {
+    "audio": "train/beat_beat28_01_0068.wav",
+    "text": "jazz hiphop beat, lofi chill relax"
+  },
+  {
+    "audio": "train/beat_beat28_02_0069.wav",
+    "text": "jazz hiphop beat, lofi chill relax"
+  },
+  {
+    "audio": "train/beat_beat5_01_0070.wav",
+    "text": "jazz hiphop beat, virtual relax chill"
+  },
+  {
+    "audio": "train/beat_beat5_02_0071.wav",
+    "text": "jazz hiphop beat, virtual relax chill"
+  },
+  {
+    "audio": "train/beat_beat30_01_0072.wav",
+    "text": "drill hiphop beat, cold ruthless oppressive"
+  },
+  {
+    "audio": "train/beat_beat30_02_0073.wav",
+    "text": "drill hiphop beat, cold ruthless oppressive"
+  },
+  {
+    "audio": "train/beat_beat37_01_0074.wav",
+    "text": "trap hiphop beat, emo nostalgic warm"
+  },
+  {
+    "audio": "train/beat_beat37_02_0075.wav",
+    "text": "trap hiphop beat, emo nostalgic warm"
+  },
+  {
+    "audio": "train/beat_beat25_01_0076.wav",
+    "text": "boombap oldschool hiphop beat, simple retro"
+  },
+  {
+    "audio": "train/beat_beat25_02_0077.wav",
+    "text": "boombap oldschool hiphop beat, simple retro"
+  },
+  {
+    "audio": "train/beat_beat24_01_0078.wav",
+    "text": "regalia hiphop beat, noisy electronic dark"
+  },
+  {
+    "audio": "train/beat_beat24_02_0079.wav",
+    "text": "regalia hiphop beat, noisy electronic dark"
+  },
+  {
+    "audio": "valid/beat_beat16_01_0000.wav",
+    "text": "memphis hiphop beat, dark oppressive confident"
+  },
+  {
+    "audio": "valid/beat_beat16_02_0001.wav",
+    "text": "memphis hiphop beat, dark oppressive confident"
+  },
+  {
+    "audio": "valid/beat_beat7_01_0002.wav",
+    "text": "boombap hiphop beat, confused dark piano"
+  },
+  {
+    "audio": "valid/beat_beat7_02_0003.wav",
+    "text": "boombap hiphop beat, confused dark piano"
+  },
+  {
+    "audio": "valid/beat_beat8_01_0004.wav",
     "text": "boombap oldschool hiphop beat, nostalgic retro sorrow"
   },
   {
-    "audio": "valid/beat_beat41_02_0019.wav",
+    "audio": "valid/beat_beat8_02_0005.wav",
+    "text": "boombap oldschool hiphop beat, nostalgic retro sorrow"
+  },
+  {
+    "audio": "valid/beat_beat35_01_0006.wav",
+    "text": "boombap hiphop beat, dark serious cold"
+  },
+  {
+    "audio": "valid/beat_beat35_02_0007.wav",
+    "text": "boombap hiphop beat, dark serious cold"
+  },
+  {
+    "audio": "valid/beat_beat15_01_0008.wav",
+    "text": "boomap hiphop beat, absurd psychedelic cold"
+  },
+  {
+    "audio": "valid/beat_beat15_02_0009.wav",
+    "text": "boomap hiphop beat, absurd psychedelic cold"
+  },
+  {
+    "audio": "valid/beat_beat9_01_0010.wav",
+    "text": "trap hiphop beat, emo guitar relax"
+  },
+  {
+    "audio": "valid/beat_beat9_02_0011.wav",
+    "text": "trap hiphop beat, emo guitar relax"
+  },
+  {
+    "audio": "valid/beat_beat41_01_0012.wav",
     "text": "memphis hiphop beat, proud cold"
+  },
+  {
+    "audio": "valid/beat_beat41_02_0013.wav",
+    "text": "memphis hiphop beat, proud cold"
+  },
+  {
+    "audio": "valid/beat_beat2_01_0014.wav",
+    "text": "afro trap drill hiphop beat, energetic dynamic furious"
+  },
+  {
+    "audio": "valid/beat_beat2_02_0015.wav",
+    "text": "afro trap drill hiphop beat, energetic dynamic furious"
+  },
+  {
+    "audio": "valid/beat_beat6_01_0016.wav",
+    "text": "boombap hiphop beat, gangsta heavy dark"
+  },
+  {
+    "audio": "valid/beat_beat6_02_0017.wav",
+    "text": "boombap hiphop beat, gangsta heavy dark"
+  },
+  {
+    "audio": "valid/beat_beat18_01_0018.wav",
+    "text": "trap hiphop beat, chinese freedom mysterious"
+  },
+  {
+    "audio": "valid/beat_beat18_02_0019.wav",
+    "text": "trap hiphop beat, chinese freedom mysterious"
   }
 ]
