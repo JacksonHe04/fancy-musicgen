@@ -1,1 +1,5 @@
 local/musicgen-small/
+*.wav
+*.mp3
+**/*.wav
+**/*.mp3
