@@ -1,0 +1,9 @@
+# CLAP计算所需依赖
+torch>=1.12.0
+torchaudio>=0.12.0
+numpy>=1.21.0
+tqdm>=4.62.0
+transformers>=4.20.0
+librosa>=0.9.0
+soundfile>=0.10.0
+laion_clap
