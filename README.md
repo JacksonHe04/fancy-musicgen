@@ -86,9 +86,9 @@ python generate_music_from_text.py
 
 ```python
 prompts = [
-    "欢快的钢琴音乐，充满活力和希望",
-    "平静的爵士背景音乐，适合咖啡馆",
-    "Trap嘻哈音乐，充满能量和激情"
+    "Cheerful piano music, full of vitality and hope",
+    "Calm jazz background music, suitable for cafes",
+    "Trap hip-hop music, full of energy and passion"
 ]
 
 output_files = generate_music_from_text(
@@ -142,7 +142,7 @@ python inference_lora.py \
     --duration 10
 ```
 
-### 3. 使用 Web 界面
+### 3. 使用 Web 界面（开发中）
 
 #### 启动服务
 
@@ -217,21 +217,12 @@ python train_lora.py \
 - 采样率：32kHz
 - 音频格式：WAV
 
-### API 端点
-
-Web 界面提供以下 API 端点：
-
-- `GET /api/schemes` - 获取可用的微调方案
-- `POST /api/load-models` - 加载选定的模型
-- `POST /api/generate` - 生成音乐
-- `GET /api/health` - 健康检查
-
 ## 文档资源
 
 - **安装指南**: [INSTALL_GUIDE.md](INSTALL_GUIDE.md)
-- **微调实施总结**: [finetune/IMPLEMENTATION_SUMMARY.md](finetune/IMPLEMENTATION_SUMMARY.md)
+- **微调实施总结**: [finetune/IMPLEMENTATION_SUMMARY.md](docs/dev/IMPLEMENTATION_SUMMARY.md)
 - **LoRA微调指南**: [finetune/lora/README.md](finetune/lora/README.md)
-- **数据准备指南**: [finetune/DATA_PREPARATION.md](finetune/DATA_PREPARATION.md)
+- **数据准备指南**: [finetune/DATA_PREPARATION.md](docs/dev/DATA_PREPARATION.md)
 - **项目文档**: [docs/](docs/)
 
 ## 许可证
@@ -241,6 +232,5 @@ Web 界面提供以下 API 端点：
 ## 参考资源
 
 - [MusicGen 文档](https://huggingface.co/docs/transformers/model_doc/musicgen)
-- [PEFT 文档](https://huggingface.co/docs/peft)
 - [LoRA 论文](https://arxiv.org/abs/2106.09685)
 - [Audiocraft 库](https://github.com/facebookresearch/audiocraft)
