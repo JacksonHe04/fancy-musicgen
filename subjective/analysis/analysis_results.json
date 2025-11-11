@@ -1,0 +1,24 @@
+{
+  "preference_statistics": {
+    "counts": {
+      "best": 110,
+      "final": 79,
+      "base": 61
+    },
+    "percentages": {
+      "best": 44.0,
+      "final": 31.6,
+      "base": 24.4
+    }
+  },
+  "model_scores": {
+    "best": 66.0,
+    "final": 47.4,
+    "base": 36.6
+  },
+  "significance_test": {
+    "chi2": 15.3043,
+    "p_value": 0.0535,
+    "significant": false
+  }
+}

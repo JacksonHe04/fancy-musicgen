@@ -1,0 +1,206 @@
+{
+  "evaluator": "hjc",
+  "evaluation_date": "2025-11-11",
+  "evaluations": [
+    {
+      "text_prompt": "detroit hiphop beat, aggressive dark threatening",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "jazz hiphop beat, smooth sophisticated mellow",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "memphis hiphop beat, eerie mysterious haunting",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "boombap oldschool hiphop beat, vintage classic timeless",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "trap hiphop beat, futuristic digital robotic",
+      "selected_model": "base"
+    },
+    {
+      "text_prompt": "rage hiphop beat, violent intense chaotic",
+      "selected_model": "final"
+    },
+    {
+      "text_prompt": "afro trap drill hiphop beat, tribal ethnic hypnotic",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "regalia hiphop beat, epic cinematic heroic",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "drill hiphop beat, underground raw authentic",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "boomap hiphop beat, experimental weird abstract",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "detroit hiphop beat, midnight urban lonely",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "jazz hiphop beat, urban street smart",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "memphis hiphop beat, grim relentless aggressive",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "boombap hiphop beat, old school golden era",
+      "selected_model": "base"
+    },
+    {
+      "text_prompt": "trap hiphop beat, bedroom introspective thoughtful",
+      "selected_model": "final"
+    },
+    {
+      "text_prompt": "rage hiphop beat, festival crowd hype",
+      "selected_model": "final"
+    },
+    {
+      "text_prompt": "afro drill hiphop beat, dance floor infectious",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "regalia hiphop beat, orchestral majestic powerful",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "drill hiphop beat, criminal street corner",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "boomap hiphop beat, psychedelic mind bending",
+      "selected_model": "base"
+    },
+    {
+      "text_prompt": "detroit hiphop beat, automotive industrial mechanical",
+      "selected_model": "final"
+    },
+    {
+      "text_prompt": "jazz hiphop beat, coffee shop ambient cozy",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "memphis hiphop beat, southern comfort warm",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "boombap hiphop beat, backpack rap intellectual",
+      "selected_model": "final"
+    },
+    {
+      "text_prompt": "trap hiphop beat, drug fueled paranoia",
+      "selected_model": "final"
+    },
+    {
+      "text_prompt": "rage hiphop beat, mosh pit aggressive",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "afro trap drill hiphop beat, cultural celebration festive",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "regalia hiphop beat, royal ceremony formal",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "drill hiphop beat, sniper precision deadly",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "boomap hiphop beat, dreamlike ethereal floating",
+      "selected_model": "final"
+    },
+    {
+      "text_prompt": "detroit hiphop beat, winter cold brutal",
+      "selected_model": "final"
+    },
+    {
+      "text_prompt": "jazz hiphop beat, saxophone soulful expressive",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "memphis hiphop beat, swampy murky mysterious",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "boombap hiphop beat, vinyl crackle nostalgic",
+      "selected_model": "final"
+    },
+    {
+      "text_prompt": "trap hiphop beat, 808 sub bass heavy",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "rage hiphop beat, power chords aggressive",
+      "selected_model": "final"
+    },
+    {
+      "text_prompt": "afro trap drill hiphop beat, sunrise optimism hopeful",
+      "selected_model": "final"
+    },
+    {
+      "text_prompt": "regalia hiphop beat, cathedral reverent sacred",
+      "selected_model": "base"
+    },
+    {
+      "text_prompt": "drill hiphop beat, night patrol vigilant",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "boomap hiphop beat, kaleidoscope colorful chaotic",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "detroit hiphop beat, automotive precision technical",
+      "selected_model": "base"
+    },
+    {
+      "text_prompt": "jazz hiphop beat, midnight blue melancholic",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "memphis hiphop beat, pressure cooker intense",
+      "selected_model": "base"
+    },
+    {
+      "text_prompt": "boombap hiphop beat, block party community",
+      "selected_model": "base"
+    },
+    {
+      "text_prompt": "trap hiphop beat, studio session creative",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "rage hiphop beat, revolution protest angry",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "afro trap drill hiphop beat, village gathering traditional",
+      "selected_model": "best"
+    },
+    {
+      "text_prompt": "regalia hiphop beat, celebration triumph victorious",
+      "selected_model": "base"
+    },
+    {
+      "text_prompt": "drill hiphop beat, surveillance state oppressive",
+      "selected_model": "base"
+    },
+    {
+      "text_prompt": "boomap hiphop beat, transcendence spiritual elevated",
+      "selected_model": "final"
+    }
+  ]
+}

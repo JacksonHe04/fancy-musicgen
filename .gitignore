@@ -6,3 +6,4 @@ local/musicgen-small/
 
 finetune/data/raw-data/*
 .cursor
+subjective/mock_scripts/*
