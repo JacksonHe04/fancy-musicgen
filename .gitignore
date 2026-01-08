@@ -4,6 +4,7 @@ local/musicgen-small/
 # **/*.wav
 # **/*.mp3
 
+docs/
 finetune/data/raw-data/*
 .cursor
 subjective/mock_scripts/*
