@@ -4,7 +4,7 @@
 
 ## 项目概述
 
-Fancy MusicGen 是一个综合性音乐生成平台，它整合了 Meta 的 Audiocraft 库，并扩展了 LoRA 微调功能。该项目旨在简化音乐生成模型的训练、微调、推理和评测过程，使用户能够轻松生成自定义风格的音乐。
+Fancy MusicGen 是一个综合性音乐生成，它整合了 Meta 的 Audiocraft 库，并扩展了 LoRA 微调功能。该项目旨在简化音乐生成模型的训练、微调、推理和评测过程，使用户能够轻松生成自定义风格的音乐。
 
 ## 主要功能
 
@@ -183,10 +183,7 @@ python train_lora.py \
 ## 文档资源
 
 - **安装指南**: [INSTALL_GUIDE.md](INSTALL_GUIDE.md)
-- **微调实施总结**: [finetune/IMPLEMENTATION_SUMMARY.md](docs/dev/IMPLEMENTATION_SUMMARY.md)
 - **LoRA微调指南**: [finetune/lora/README.md](finetune/lora/README.md)
-- **数据准备指南**: [finetune/DATA_PREPARATION.md](docs/dev/DATA_PREPARATION.md)
-- **项目文档**: [docs/](docs/)
 
 ## 许可证
 
