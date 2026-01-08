@@ -1,17 +1,16 @@
 # Fancy MusicGen
 
-一个基于MusicGen模型的音乐生成与微调整合框架，提供完整的训练、推理和Web界面交互功能。
+一个基于MusicGen模型的音乐生成与微调整合框架，提供完整的训练和推理功能。
 
 ## 项目概述
 
-Fancy MusicGen 是一个综合性音乐生成平台，它整合了 Meta 的 Audiocraft 库，并扩展了 LoRA 微调功能，同时提供了直观的 Web 界面。该项目旨在简化音乐生成模型的训练、微调、推理和交互过程，使用户能够轻松生成自定义风格的音乐。
+Fancy MusicGen 是一个综合性音乐生成平台，它整合了 Meta 的 Audiocraft 库，并扩展了 LoRA 微调功能。该项目旨在简化音乐生成模型的训练、微调、推理和评测过程，使用户能够轻松生成自定义风格的音乐。
 
 ## 主要功能
 
 - **MusicGen 模型集成**：基于 Meta 的 Audiocraft 库，支持音乐生成功能
 - **LoRA 微调框架**：参数高效的模型微调，支持自定义数据集训练
 - **完整的工作流**：数据准备、训练、推理、评测一体化流程
-- **Web 界面**：基于 React 的用户友好界面，支持模型加载、音乐生成和音频播放
 - **批量处理**：支持批量音乐生成和评测
 - **多种输出格式**：支持 WAV 音频格式，带响度标准化和压缩
 
@@ -19,9 +18,8 @@ Fancy MusicGen 是一个综合性音乐生成平台，它整合了 Meta 的 Audi
 
 ```
 fancy-musicgen/
-├── app/                  # Web 应用界面（React + Express）
-├── audiocraft/           # Meta 的 Audiocraft 库
-├── docs/                 # 项目文档
+├── app/                  # Web 应用界面（当前不可用）
+├── audiocraft/           # Meta 的 Audiocraft 库（第三方库）
 ├── finetune/             # LoRA 微调相关代码和资源
 │   ├── data/             # 训练数据目录
 │   ├── lora/             # LoRA 微调核心代码
@@ -34,11 +32,12 @@ fancy-musicgen/
 └── README.md             # 项目说明文档（当前文件）
 ```
 
+**注意**：项目中的 `audiocraft` 目录是 Meta 公司提供的第三方库，除此之外，项目中的其他所有代码均为自主开发的工程代码。
+
 ## 系统要求
 
 - Python 3.8+
 - CUDA 支持（推荐用于模型训练和推理加速）
-- Node.js 16+（用于 Web 界面）
 - 至少 8GB GPU 显存（推荐 16GB+）
 
 ## 安装指南
@@ -61,16 +60,10 @@ bash install_deps.sh
 ```
 
 该脚本会：
+
 - 安装兼容的 Cython 版本
 - 正确安装 `av==10.0.0` 包
 - 安装所有其他必要的依赖
-
-### 3. 安装 Web 界面依赖
-
-```bash
-cd app
-npm install
-```
 
 ## 使用指南
 
@@ -141,36 +134,6 @@ python inference_lora.py \
     --output_dir ../output/generated \
     --duration 10
 ```
-
-### 3. 使用 Web 界面（开发中）
-
-#### 启动服务
-
-```bash
-cd app
-
-# 使用 conda 环境启动完整服务（推荐）
-npm run dev:full:conda
-
-# 或者手动启动
-# 终端1: 启动后端
-npm run server:conda
-# 终端2: 启动前端
-npm run dev
-```
-
-服务启动后，可以通过以下地址访问：
-- 前端界面: http://localhost:5173
-- 后端 API: http://localhost:3001
-
-#### 使用界面
-
-1. 选择微调方案（从输出目录中自动检测）
-2. 选择要使用的模型（MusicGen-Small 或微调模型）
-3. 设置生成参数（音乐风格、标签等）
-4. 点击"加载模型"按钮
-5. 点击"生成音乐"按钮
-6. 使用音频播放器播放和下载生成的音乐
 
 ## 评测功能
 
